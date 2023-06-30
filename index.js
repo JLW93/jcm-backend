@@ -10,7 +10,7 @@ const port = 3000;
 
 app.use(express.json());
 app.use(cors({
-    origin: 'http://127.0.0.1:5500'
+    origin: 'https://jcm-frontend.vercel.app/'
 }));
 
 const transporter = nodemailer.createTransport({
