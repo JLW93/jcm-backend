@@ -9,9 +9,17 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(cors({
-    origin: 'https://jcm-frontend.vercel.app/'
-}));
+
+const corsOptions = {
+    origin: 'https://jcm-frontend.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  };
+
+app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions));
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
