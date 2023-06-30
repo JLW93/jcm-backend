@@ -12,27 +12,10 @@ app.use(express.json());
 
 const corsOptions = {
     origin: 'https://jcm-frontend.vercel.app',
-    methods: ['GET', 'POST'],
-    allowedHeaders: [
-        'Content-Type', 
-        'Authorization', 
-        'Access-Control-Allow-Methods', 
-        'Access-Control-Request-Headers'
-    ],
     credentials: true,
-    // preflightContinue: true,
 };
 
-// app.use(function(req, res, next) {
-//     res.setHeader('Access-Control-Allow-Origin', 'https://jcm-frontend.vercel.app');
-//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-//     res.setHeader('Access-Control-Allow-Credentials', true);
-//     next();
-// });
-
 app.use(cors(corsOptions));
-// app.options('*', cors(corsOptions));
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
