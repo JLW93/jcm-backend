@@ -26,7 +26,7 @@ const corsOptions = {
 //     next();
 // });
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
 const transporter = nodemailer.createTransport({
@@ -37,7 +37,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.post('/api/data/email', cors(), async (req, res) => {
+app.post('/api/data/email', async (req, res) => {
     try {
         const requestData = req.body;
         console.log(requestData);
