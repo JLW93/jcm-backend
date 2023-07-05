@@ -52,13 +52,15 @@ app.post('/api/data/email', async (req, res) => {
                 `
             };
 
-            transporter.sendMail(mailOptions, (error, info) => {
+            const response = await transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
                     console.error(error);
                 } else {
                     console.log('Email sent:', info.response);
                 }
             });
+
+            console.log(response);
 
         } else if(requestData.desired_service == 'schedule_service') {
             const mailOptions = {
@@ -76,13 +78,15 @@ app.post('/api/data/email', async (req, res) => {
                 `
             };
 
-            transporter.sendMail(mailOptions, (error, info) => {
+            const response = await transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
                     console.error(error);
                 } else {
                     console.log('Email sent:', info.response);
                 }
             });
+
+            console.log(response);
         }
 
         res.json({success: true});
