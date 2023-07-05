@@ -31,9 +31,11 @@ app.post('/api/data/email', async (req, res) => {
         console.log(requestData);
 
         if(!requestData.phone.includes('-')) {
-            var phoneNumber = `(${requestData.phone.slice(0,3)}) ${requestData.phone.slice(3,6)}-${requestData.phone.slice(6)}`
+            var phoneNumber = `(${requestData.phone.slice(0,3)}) ${requestData.phone.slice(3,6)}-${requestData.phone.slice(6)}`;
+            console.log('phone number creation worked');
         } else {
             var phoneNumber = requestData.phone;
+            console.log('phone number creation worked');
         }
 
         if(requestData.desired_service == 'quote') {
@@ -51,8 +53,10 @@ app.post('/api/data/email', async (req, res) => {
                 <p><strong>Message:</strong> ${requestData.message}</p>
                 `
             };
+            console.log(mailOptions);
 
             transporter.sendMail(mailOptions, (error, info) => {
+                console.log('send mail function started.');
                 if (error) {
                     console.error(error);
                 } else {
@@ -75,8 +79,10 @@ app.post('/api/data/email', async (req, res) => {
                 <p><strong>Message:</strong> ${requestData.message}</p>
                 `
             };
+            console.log(mailOptions);
 
             transporter.sendMail(mailOptions, (error, info) => {
+                console.log('send mail function started.');
                 if (error) {
                     console.error(error);
                 } else {
@@ -85,7 +91,7 @@ app.post('/api/data/email', async (req, res) => {
             });
 
         }
-
+        console.log('finished');
         res.json({success: true});
 
     } catch (error) {
