@@ -9,7 +9,7 @@ const app = express();
 const port = 3000;
 
 const corsOptions = {
-    origin: ['https://jlw93.github.io', 'https://jlw93.github.io/jcm-frontend'],
+    origin: ['https://dark-lime-catfish-ring.cyclic.app'],
     methods: ['GET', 'POST', 'OPTIONS']
 };
 
