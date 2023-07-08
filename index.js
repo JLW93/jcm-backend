@@ -46,7 +46,7 @@ app.post('/api/data/email', cors(), async (req, res) => {
                     console.log('Server is ready to take our messages!');
                     console.log(success);
                 }
-            })
+            });
         });
 
         if(requestData.desired_service == 'quote') {
