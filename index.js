@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const cors = require('cors');
+// const cors = require('cors');
 const nodemailer = require('nodemailer');
 
 const pass = require('./pass.json');
@@ -10,12 +10,12 @@ const port = 3000;
 
 app.use(express.json());
 
-const corsOptions = {
-    origin: 'https://jcm-frontend.vercel.app',
-    credentials: true,
-};
+// const corsOptions = {
+//     origin: 'https://jcm-frontend.vercel.app',
+//     credentials: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -73,6 +73,7 @@ app.post('/api/data/email', async (req, res) => {
                     if (error) {
                         console.log('there was an error')
                         console.error(error);
+                        reject(error);
                     } else {
                         console.log('Email sent:', info.response);
                     }
@@ -101,6 +102,7 @@ app.post('/api/data/email', async (req, res) => {
                     if (error) {
                         console.log('there was an error')
                         console.error(error);
+                        reject(error);
                     } else {
                         console.log('Email sent:', info.response);
                     }
