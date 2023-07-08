@@ -58,6 +58,7 @@ app.post('/api/data/email', async (req, res) => {
             transporter.sendMail(mailOptions, (error, info) => {
                 console.log('send mail function started.');
                 if (error) {
+                    console.log('there was an error')
                     console.error(error);
                 } else {
                     console.log('Email sent:', info.response);
@@ -84,6 +85,7 @@ app.post('/api/data/email', async (req, res) => {
             transporter.sendMail(mailOptions, (error, info) => {
                 console.log('send mail function started.');
                 if (error) {
+                    console.log('there was an error')
                     console.error(error);
                 } else {
                     console.log('Email sent:', info.response);
