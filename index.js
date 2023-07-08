@@ -9,7 +9,7 @@ const app = express();
 const port = 3000;
 
 const corsOptions = {
-    origin: 'https://jcm-frontend.vercel.app',
+    origin: 'https://jlw93.github.io/jcm-frontend',
     methods: ['GET', 'POST']
 };
 
@@ -43,7 +43,7 @@ app.post('/api/data/email', cors(), async (req, res) => {
                     console.log(error);
                     reject(error);
                 } else {
-                    console.log('Server is ready to take ourt messages!');
+                    console.log('Server is ready to take our messages!');
                     console.log(success);
                 }
             })
