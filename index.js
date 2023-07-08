@@ -38,6 +38,18 @@ app.post('/api/data/email', async (req, res) => {
             console.log('phone number creation worked');
         }
 
+        await new Promise((resolve, reject) => {
+            transporter.verify(function(error, success) {
+                if (error) {
+                    console.log(error);
+                    reject(error);
+                } else {
+                    console.log('Server is ready to take ourt messages!');
+                    console.log(success);
+                }
+            })
+        });
+
         if(requestData.desired_service == 'quote') {
             const mailOptions = {
                 from: 'jcmlawnservices.ky@gmail.com',
@@ -55,7 +67,7 @@ app.post('/api/data/email', async (req, res) => {
             };
             console.log(mailOptions);
 
-            new Promise ((resolve, reject) => {
+            await new Promise ((resolve, reject) => {
                 transporter.sendMail(mailOptions, (error, info) => {
                     console.log('send mail function started.');
                     if (error) {
@@ -83,7 +95,7 @@ app.post('/api/data/email', async (req, res) => {
             };
             console.log(mailOptions);
 
-            new Promise ((resolve, reject) => {
+            await new Promise ((resolve, reject) => {
                 transporter.sendMail(mailOptions, (error, info) => {
                     console.log('send mail function started.');
                     if (error) {
