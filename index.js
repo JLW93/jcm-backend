@@ -9,8 +9,8 @@ const app = express();
 const port = 3000;
 
 const corsOptions = {
-    origin: 'https://jlw93.github.io/jcm-frontend',
-    methods: ['GET', 'POST']
+    origin: ['https://jlw93.github.io', 'https://jlw93.github.io/jcm-frontend'],
+    methods: ['GET', 'POST', 'OPTIONS']
 };
 
 app.use(cors(corsOptions));
