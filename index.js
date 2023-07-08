@@ -55,16 +55,17 @@ app.post('/api/data/email', async (req, res) => {
             };
             console.log(mailOptions);
 
-            transporter.sendMail(mailOptions, (error, info) => {
-                console.log('send mail function started.');
-                if (error) {
-                    console.log('there was an error')
-                    console.error(error);
-                } else {
-                    console.log('Email sent:', info.response);
-                }
-            });
-
+            new Promise ((resolve, reject) => {
+                transporter.sendMail(mailOptions, (error, info) => {
+                    console.log('send mail function started.');
+                    if (error) {
+                        console.log('there was an error')
+                        console.error(error);
+                    } else {
+                        console.log('Email sent:', info.response);
+                    }
+                })
+            })
         } else if(requestData.desired_service == 'schedule_service') {
             const mailOptions = {
                 from: 'jcmlawnservices.ky@gmail.com',
@@ -82,16 +83,17 @@ app.post('/api/data/email', async (req, res) => {
             };
             console.log(mailOptions);
 
-            transporter.sendMail(mailOptions, (error, info) => {
-                console.log('send mail function started.');
-                if (error) {
-                    console.log('there was an error')
-                    console.error(error);
-                } else {
-                    console.log('Email sent:', info.response);
-                }
-            });
-
+            new Promise ((resolve, reject) => {
+                transporter.sendMail(mailOptions, (error, info) => {
+                    console.log('send mail function started.');
+                    if (error) {
+                        console.log('there was an error')
+                        console.error(error);
+                    } else {
+                        console.log('Email sent:', info.response);
+                    }
+                })
+            })
         }
         console.log('finished');
         res.json({success: true});
