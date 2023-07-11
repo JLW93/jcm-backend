@@ -8,12 +8,12 @@ const pass = require('./pass.json');
 const app = express();
 const port = 3000;
 
-const corsOptions = {
-    origin: ['https://benevolent-panda-858374.netlify.app/'],
-    methods: ['GET', 'POST', 'OPTIONS']
-};
+// const corsOptions = {
+//     origin: ['https://benevolent-panda-858374.netlify.app'],
+//     methods: ['GET', 'POST', 'OPTIONS']
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -24,7 +24,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.options('*', cors(corsOptions));
+app.options('*', cors());
 
 app.post('/api/data/email', cors(), async (req, res) => {
     try {
