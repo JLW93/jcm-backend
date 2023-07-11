@@ -1,0 +1,10 @@
+{
+    "headers": [
+        {
+            "source": "/api/(.*)",
+            "headers": [
+                { "key": "Access-Control-Allow-Origin", "value": "https://benevolent-panda-858374.netlify.app" }
+            ]
+        }
+    ]
+}
