@@ -24,7 +24,20 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.options('*', cors());
+// app.options('*', cors());
+
+module.exports = (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://benevolent-panda-858374.netlify.app');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
+
+    if(req.method === 'OPTIONS') {
+        return res.status(200).json(({
+            body: "OK"
+        }))
+    }
+}
 
 app.post('/api/data/email', cors(), async (req, res) => {
     try {
