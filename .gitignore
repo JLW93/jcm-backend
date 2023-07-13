@@ -2,5 +2,4 @@ creds.txt
 credentials.json
 token.json
 vercel.json
-node_modules
-functions
+netlify.toml
